@@ -3,6 +3,7 @@ package actions;
 import pojos.AccountData;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ShowBalance {
@@ -22,8 +23,8 @@ public class ShowBalance {
             System.out.println(ex.getLocalizedMessage());
         }
         //as each account id will have only one account, we can use find instead of filter.
-        System.out.println("Stream "+ streamList);
-        ArrayList<AccountData> foundAccount = (ArrayList<AccountData>) streamList;
+        ArrayList<AccountData> foundAccount = (ArrayList<AccountData>) streamList.collect(Collectors.toList());
+        System.out.println("Current Balance in found Account "+ foundAccount.getFirst().getAccountBalance());
         return foundAccount.getFirst().getAccountBalance();
     }
 

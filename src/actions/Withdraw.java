@@ -19,6 +19,7 @@ public class Withdraw {
 
         if(currentAmount>=0){
             currentAmount = currentAmount - amountToBeWithdrawn;
+            System.out.println("Current Amount After withdraw"+ currentAmount + "Amount withdrawn in this transaction is "+amountToBeWithdrawn);
             //
             return true;
         }

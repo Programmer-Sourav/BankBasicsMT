@@ -19,6 +19,7 @@ public class Deposit {
 
         if(currentAmount>=0){
             currentAmount = currentAmount + amountTobeDeposited;
+            System.out.println("Current Amount After Deposit"+ currentAmount + "Amount Deposited in this transaction is "+amountTobeDeposited);
             //
             return true;
         }
