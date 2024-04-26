@@ -1,38 +1,41 @@
 package pojos;
 
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
+
 public class AccountData {
-   private double accountBalance;
-   private long accountId;
+   private final AtomicReference<Double> accountBalance;
+   private final AtomicLong accountId;
+   private final AtomicReference<AccountHolder> accountHolder;
 
    public AccountData(double accountBalance, long accountId, AccountHolder accountHolder) {
-      this.accountBalance = accountBalance;
-      this.accountId = accountId;
-      this.accountHolder = accountHolder;
+      this.accountBalance = new AtomicReference<>(accountBalance);
+      this.accountId = new AtomicLong(accountId);
+      this.accountHolder = new AtomicReference<>(accountHolder);
    }
 
    public double getAccountBalance() {
-      return accountBalance;
+      return accountBalance.get();
    }
 
    public void setAccountBalance(double accountBalance) {
-      this.accountBalance = accountBalance;
+      this.accountBalance.set(accountBalance);
    }
 
    public long getAccountId() {
-      return accountId;
+      return accountId.get();
    }
 
    public void setAccountId(long accountId) {
-      this.accountId = accountId;
+      this.accountId.set(accountId);
    }
 
    public AccountHolder getAccountHolder() {
-      return accountHolder;
+      return accountHolder.get();
    }
 
    public void setAccountHolder(AccountHolder accountHolder) {
-      this.accountHolder = accountHolder;
+      this.accountHolder.set(accountHolder);
    }
-
-   private AccountHolder accountHolder;
 }
+

@@ -13,7 +13,7 @@ public class Withdraw {
     private AccountData accountInfo;
 
 
-    public boolean performWithdrawAction(AccountData accountInfo, double amountToBeWithdrawn){
+    public synchronized boolean performWithdrawAction(AccountData accountInfo, double amountToBeWithdrawn){
         long accountId = accountInfo.getAccountId();
         double currentAmount = accountInfo.getAccountBalance();
 

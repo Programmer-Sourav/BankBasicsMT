@@ -13,7 +13,7 @@ public class Deposit {
     private AccountData accountInfo;
 
 
-    public boolean performDepositAction(AccountData accountInfo, double amountTobeDeposited){
+    public synchronized boolean performDepositAction(AccountData accountInfo, double amountTobeDeposited){
         long accountId = accountInfo.getAccountId();
         double currentAmount = accountInfo.getAccountBalance();
 
