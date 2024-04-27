@@ -9,13 +9,13 @@ public class BankingActions {
     public void performTransaction(ArrayList< AccountData > allAccounts, String transactionType, double amountTobeTransacted, AccountData accountInfo){
         switch (transactionType){
             case "DEPOSIT":
-                Deposit deposit = new Deposit(amountTobeTransacted, accountInfo);
-                boolean isSuccessful = deposit.performDepositAction(accountInfo, amountTobeTransacted);
+                Deposit deposit = new Deposit();
+                boolean isSuccessful = deposit.performDepositAction(allAccounts, accountInfo, amountTobeTransacted);
                 System.out.println("****** Deposit is "+ isSuccessful);
                 break;
             case "WITHDRAW":
-                Withdraw withdraw = new Withdraw(amountTobeTransacted, accountInfo);
-                boolean isWithdrawSuccessful = withdraw.performWithdrawAction(accountInfo, amountTobeTransacted);
+                Withdraw withdraw = new Withdraw();
+                boolean isWithdrawSuccessful = withdraw.performWithdrawAction(allAccounts, accountInfo, amountTobeTransacted);
                 System.out.println("****** Withdrawal is "+ isWithdrawSuccessful);
                 break;
             case "SHOW":
